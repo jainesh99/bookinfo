@@ -3,7 +3,7 @@ pipeline {
         stage('Building Image') {
             steps{
                 script{
-                    docker build src/details -t details:1.0
+                    sh 'docker build src/details -t details:1.0'
                 }
             }
         }
