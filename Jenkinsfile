@@ -23,7 +23,7 @@ volumes: [
 
     stage('Run kubectl') {
       container('kubectl') {
-        sh "kubectl get pods -A"
+        sh "kubectl get pods --all-namespaces=true"
       }
     }
   }
