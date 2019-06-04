@@ -22,7 +22,8 @@ volumes: [
     stage('Create Docker images') {
       container('docker') {
           sh "cp ca.crt /usr/local/share/ca-certificates"
-          sh "cat ca.crt"
+          sh "cat /usr/local/share/ca-certificates/ca.crt"
+          sh "chmod 775 /usr/local/share/ca-certificates/ca.crt"
           sh "update-ca-certificates"
           sh "ls -la /etc/ssl/certs | grep ca.crt"
           sh "docker build src/details -t ${containerName}:${version}"
