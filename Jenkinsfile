@@ -20,7 +20,7 @@ volumes: [
           sh "docker -v"
         }
       }
-    }
+
     stage('Run kubectl') {
       container('kubectl') {
         sh "kubectl get pods"
