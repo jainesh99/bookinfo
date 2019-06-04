@@ -1,10 +1,12 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build Docker Image') {
-        container('docker') {
-            sh "docker -v"
+    agent none
+    stages {
+        stage('Build Docker Image') {
+            agent {docker 'docker:stable'}
+            steps {
+                echo 'Inside Docker container'
+                sh 'docker -v'
+            }
         }
     }
-  }
 }
