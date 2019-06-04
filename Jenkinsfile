@@ -1,4 +1,5 @@
 pipeline {
+node {
     stages {
         stage('Building Image') {
             steps{
@@ -7,5 +8,6 @@ pipeline {
                 }
             }
         }
+    }
     }
 }
