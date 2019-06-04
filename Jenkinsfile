@@ -1,13 +1,9 @@
 pipeline {
-node {
+    agent {docker}
     stages {
-        stage('Building Image') {
-            steps{
-                script{
-                    sh 'docker build src/details -t details:1.0'
-                }
+        stage('Build') {
+            steps {
+                sh 'docker build src/details -t details:1.0'
             }
         }
-    }
-    }
 }
