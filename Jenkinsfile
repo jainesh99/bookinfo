@@ -1,10 +1,10 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'docker build src/details -t details:1.0'
-            }
+  agent any
+  stages {
+    stage('Build Docker Image') {
+        container('docker') {
+            sh "docker -v"
         }
-}
+    }
+  }
 }
