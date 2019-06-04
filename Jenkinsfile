@@ -23,7 +23,7 @@ volumes: [
       container('docker') {
           sh "docker build src/details -t ${containerName}:${version}"
           sh "docker tag ${containerName}:${version} ${harborHostName}/${project}/${containerName}:${version}"
-          sh "docker push docker push ${containerName}:${version} ${harborHostName}/${project}/${containerName}:${version}"
+          sh "docker push docker push ${harborHostName}/${project}/${containerName}:${version}"
         }
       }
 
