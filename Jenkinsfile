@@ -30,7 +30,6 @@ volumes: [
 
     stage('Run kubectl') {
       container('kubectl') {
-        sh "kubectl delete -f platform/kube/bookinfo-details-harbor.yaml"
         sh "kubectl apply -f platform/kube/bookinfo-details-harbor.yaml"
       }
     }
