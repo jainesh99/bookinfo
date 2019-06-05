@@ -5,8 +5,8 @@ podTemplate(label: label, containers: [
   containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.8.8', command: 'cat', ttyEnabled: true),
 ],
 //volumes: [
-//  hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
-]) {
+//  hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')]
+) {
   node(label) {
     def myRepo = checkout scm
     def gitCommit = myRepo.GIT_COMMIT
