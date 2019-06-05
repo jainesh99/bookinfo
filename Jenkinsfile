@@ -1,8 +1,12 @@
-node {
-    checkout scm
-
-    docker.image('docker:latest') { c ->
-
-        sh 'docker -v'
+pipeline {
+    agent {
+        docker { image 'docker:latest' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'docker -v'
+            }
+        }
     }
 }
