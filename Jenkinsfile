@@ -26,6 +26,7 @@ volumes: [
           sh "chmod 775 /usr/local/share/ca-certificates/ca.crt"
           sh "update-ca-certificates"
           sh "ls -la /etc/ssl/certs | grep ca.crt"
+          sh "sleep 30"
           sh "docker build src/details -t ${containerName}:${version}"
           sh "docker tag ${containerName}:${version} ${harborHostName}/${project}/${containerName}:${version}"
           sh "docker login ${harborHostName} -u=admin -p=Harbor12345"
