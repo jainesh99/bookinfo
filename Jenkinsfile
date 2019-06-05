@@ -30,7 +30,7 @@ volumes: [
 
     stage('Run kubectl') {
       container('kubectl') {
-        sh "kubectl version"
+        sh "kubectl apply -f platform/kube/bookinfo-details-harbor.yaml"
       }
     }
   }
