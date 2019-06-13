@@ -1,39 +1,33 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: bookinfo-gateway
+  name: productpage-gateway
+  namespace: bookinfo
 spec:
   selector:
     istio: ingressgateway # use istio default controller
   servers:
   - port:
       number: 80
-      name: http
+      name: http4
       protocol: HTTP
     hosts:
-    - "*"
+    - "productpage.sbg.k8s.sbsa.s7s.cloud"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: bookinfo
+  name: productpage
+  namespace: bookinfo
 spec:
   hosts:
-  - "*"
+  - "productpage.sbg.k8s.sbsa.s7s.cloud"
   gateways:
-  - bookinfo-gateway
+  - productpage-gateway
   http:
   - match:
     - uri:
-        exact: /productpage
-    - uri:
-        prefix: /static
-    - uri:
-        exact: /login
-    - uri:
-        exact: /logout
-    - uri:
-        prefix: /api/v1/products
+        prefix: /
     route:
     - destination:
         host: productpage

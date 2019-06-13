@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: reviews
-        image: ec2-18-202-213-146.eu-west-1.compute.amazonaws.com/details/detailscontainer:1.0
+        image: istio/examples-bookinfo-reviews-v2:1.14.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
